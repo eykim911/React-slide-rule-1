@@ -22,6 +22,7 @@ export interface NumberStyle {
   color?: Property.Color;
   top?: number;
   left?: number;
+  rotate?: number;
   textAlign?: 'left' | 'right' | 'center' | 'start' | 'end';
   textBaseline?:
     | 'top'
