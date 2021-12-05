@@ -27,8 +27,9 @@ const drawNumber = ({
   numberStyle: { top, left, rotate },
 }) => {
   ctx.save();
-  if (top) ctx.translate(coordinate, top);
+  if (top !== undefined) ctx.translate(coordinate, top);
   else ctx.translate(left, coordinate);
+
   ctx.rotate((Math.PI / 180) * rotate);
   ctx.fillText(text, 0, 0);
   ctx.restore();
