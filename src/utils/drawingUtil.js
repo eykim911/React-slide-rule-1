@@ -25,9 +25,10 @@ const drawNumber = ({
   text,
   coordinate,
   numberStyle: { top, left, rotate },
+  isXAxis,
 }) => {
   ctx.save();
-  if (top !== undefined) ctx.translate(coordinate, top);
+  if (isXAxis) ctx.translate(coordinate, top);
   else ctx.translate(left, coordinate);
 
   ctx.rotate((Math.PI / 180) * rotate);
@@ -78,7 +79,7 @@ const drawCanvas = ({
     if (i % 10 === 0) {
       drawLine(ctx, coordinate, markStyle);
       const text = _calcNum(i, step) + unit;
-      drawNumber({ ctx, text, coordinate, numberStyle });
+      drawNumber({ ctx, text, coordinate, numberStyle, isXAxis });
     } else drawLine(ctx, coordinate, smallerMarkStyle);
 
     ctx.closePath();
